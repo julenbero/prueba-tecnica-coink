@@ -1,0 +1,9 @@
+.home-content {
+  display: flex;
+  height: 100%;
+}
+
+.home-content main {
+  flex-grow: 1;
+  background-color: #f2f2f2;
+}

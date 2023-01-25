@@ -1,0 +1,123 @@
+<div class="request-content">
+    <h1>SOLICITUD TARJETAS</h1>
+    <div class="container-find">
+        <i class="fas fa-regular fa-magnifying-glass fa-lg"></i>
+        <span class="text-buscar">Buscar</span>
+    </div>
+    <div>
+        <div>
+            <form>
+                <div class="example-form">
+                    <div class="form-input">
+                        <p>Nombre</p>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" placeholder="Nombre" [(ngModel)]="nameCharacter"
+                                [name]="nameCharacter" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-input">
+                        <p>Tipo de Personaje</p>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" placeholder="Tipo de personaje" [(ngModel)]="typeCharacter"
+                                [name]="typeCharacter" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <button class='button-form' mat-raised-button (click)="cleanFilter()">
+                        Limpiar filtros
+                    </button>
+                    <button class='button-form filled' mat-raised-button (click)="searchFields()">
+                        Buscar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="request-cards">
+        <button class='button-form' mat-raised-button>
+            Solicitar Tarjetas
+        </button>
+    </div>
+
+    <div *ngIf="!showTable">
+        <h1>No encontramos ninguna tarjeta con esa información.</h1>
+    </div>
+    <div *ngIf="showTable">
+        <table mat-table [dataSource]="getCharacters" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="blackLeft">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'select-item': element?.checked}"></td>
+            </ng-container>
+
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'select-item': element?.checked}"> {{element.id}}
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'select-item': element?.checked}"> {{element.name}}
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'select-item': element?.checked}"> {{element.status}}
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="specie">
+                <th mat-header-cell *matHeaderCellDef> Specie </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'select-item': element?.checked}">
+                    {{element.species}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> Type </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'select-item': element?.checked}"> {{element.type}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="blackRight">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element" class="black-cell" [ngClass]="{'select-item': element?.checked}">
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <div class="table-paginator">
+            <span>Mostrando {{items}} de {{getInfo.count}}</span>
+            <div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link back" [ngClass]="{'disabled-link': actualPage === 1}"
+                                (click)="changePage($event)" aria-label="Previous">
+                                <i class="fas fa-regular fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        <li *ngFor="let number of paginator" class="page-item">
+                            <a class="page-link" [ngClass]="{'active': number === actualPage}"
+                                (click)="selectPage($event)">{{number}}</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="javascript: void(0);" class="page-link next"
+                                [ngClass]="{'disabled-link': actualPage === getInfo.pages}" aria-label="Next"
+                                (click)="changePage($event)">
+                                <i class="fas fa-regular fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

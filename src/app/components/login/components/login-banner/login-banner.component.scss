@@ -1,0 +1,39 @@
+.container-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #001b24;
+  height: 100vh;
+  min-width: 614px;
+  max-width: 614px;
+  padding: 105px 156px;
+}
+
+.text {
+  color: #c4f6dc;
+  text-align: center;
+}
+
+.title-banner {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 39px;
+  margin-bottom: 24px;
+}
+
+.paragraph {
+  font-size: 1.5rem;
+  line-height: 29px;
+  margin: 24px 0px;
+}
+
+.logo-banner-1 {
+  width: 348px;
+  height: 280px;
+}
+
+.logo-banner-2 {
+  width: 325px;
+  height: 219px;
+}

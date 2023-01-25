@@ -1,0 +1,73 @@
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+
+.register-links {
+  position: absolute;
+  top: 86px;
+  right: 87px;
+}
+
+.register-links a {
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 15px;
+  color: #001b24;
+  font-size: 1rem;
+  line-height: 19px;
+}
+
+.form-title {
+  color: #001b24;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+.button-form {
+  background-color: #003336;
+  font-family: "Montserrat";
+  font-weight: 600;
+  color: white;
+  height: 45px;
+  width: 314px;
+  border-radius: 100px;
+}
+
+.form-items {
+  width: 458px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.email-field {
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+}
+
+.form-send {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.form-send a {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #001b24;
+  margin-top: 39px;
+}
